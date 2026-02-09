@@ -1,0 +1,43 @@
+{
+  "mcpServers":{
+    "TestSprite":{
+      "command":"npx","args":["-y","@testsprite/testsprite-mcp@latest"],
+      "env":{"API_KEY":"${TESTSPRITE_API_KEY}"
+      },
+      "alwaysAllow":[
+        "testsprite_generate_code_summary",
+        "testsprite_generate_standardized_prd",
+        "testsprite_generate_frontend_test_plan",
+        "testsprite_generate_backend_test_plan",
+        "testsprite_bootstrap_tests"
+      ],
+      "description":"Testsprite MCP server for automated testing tools"
+      },
+      "time":{
+        "command":"uvx",
+        "args":["mcp-server-time"],
+        "description":"Time zone conversion and current time utilities",
+        "disabled":false,
+        "alwaysAllow":["convert_time"]
+        },
+        "context7":{
+          "command":"npx",
+          "args":["-y","@upstash/context7-mcp"],
+          "env":{"DEFAULT_MINIMUM_TOKENS":"1000"
+          },"description":"Context7 documentation lookup service",
+          "alwaysAllow":["get-library-docs","resolve-library-id"]
+        },
+          "browsermcp":{
+            "command":"npx",
+            "args":["-y","@browsermcp/mcp@latest"],
+            "alwaysAllow":["browser_action","browser_launch","browser_close"],
+            "description":"Browser automation MCP server for Puppeteer/browser actions"
+        },
+            "@21st-dev/magic":{
+              "command":"cmd",
+              "args":["/c","npx","-y",
+              "@21st-dev/magic@latest",
+              "API_KEY=\"196099768d5ce9f7bb2c3a60bf6bc98c3f63bfb3539c3efe8fa4cfc321d5ed67\""]
+            }
+          }
+}
